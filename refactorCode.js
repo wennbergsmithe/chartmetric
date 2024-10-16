@@ -68,11 +68,11 @@ module.exports {
 */
 
 
-function getArtistInsights(query) {
+async function getArtistInsights(query) {
   let { id, limit, weight, daysAgo, newsFormat } = query;
 
   if (!weight) {
-    
+
     const counts = await snowflakeClientExecuteQuery(QUERIES
       .QUERY_GET_ARTIST_INFO.ARTIST_INSIGHTS
       .GET_INSIGHTS_COUNT(id, 8, 4, daysAgo));
